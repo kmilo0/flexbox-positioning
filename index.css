@@ -30,6 +30,10 @@
   font-size: 18px;
 }
 
-.row {
-  margin-top: 10px;
+.form-flex {
+  margin: 1rem 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
 }
