@@ -1,43 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      .justify-content {
-        margin: 0 1rem;
-      }
-
-      .align-items {
-        margin: 0 1rem;
-      }
-
-      .flex-wrap {
-        margin: 0 1rem;
-      }
-
-      .align-content {
-        margin: 1rem;
-        display: block;
-      }
-
-      #main {
-        margin: 1rem;
-        height: 800px;
-        border: 1px solid #c3c3c3;
-
-        display: flex;
-        width: 800px;
-      }
-
-      #main > div {
-        text-align: center;
-      }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
+    <div class="container">
+      <div class="item1">50px x 50px</div>
+      <div class="item2">auto x 50px</div>
+      <div class="item3">50px x auto</div>
+      <div class="item4">auto x auto</div>
+    </div>
+
     <form>
-      <label class="justify-content"
-        >justify-content
-        <select name="select-justify-content" id="select-justify-content">
+      <div class="row">
+        <label for="select-justify-content">justify-content: </label>
+        <select id="select-justify-content">
           <option value="flex-start">flex-start</option>
           <option value="center">center</option>
           <option value="flex-end">flex-end</option>
@@ -45,81 +23,41 @@
           <option value="space-around">space-around</option>
           <option value="space-evenly">space-evenly</option>
         </select>
-      </label>
+      </div>
 
-      <label class="align-items"
-        >align-items
-        <select name="select-align-items" id="select-align-items">
+      <div class="row">
+        <label for="select-align-items">align-items</label>
+        <select id="select-align-items">
           <option value="flex-start">flex-start</option>
           <option value="center">center</option>
           <option value="flex-end">flex-end</option>
           <option value="stretch" selected="selected">stretch</option>
           <option value="baseline">baseline</option>
         </select>
-      </label>
+      </div>
 
-      <label class="flex-wrap"
-        >flex-wrap
-        <input type="checkbox" name="flex-wrap" id="flex-wrap" />
-      </label>
+      <div class="row">
+        <label for="flex-wrap" class="flex-wrap"
+          >flex-wrap
+          <input type="checkbox" id="flex-wrap" />
+        </label>
+      </div>
 
-      <label class="align-content"
-        >align-content
-        <select name="select-align-content" id="select-align-content">
-          <option value="flex-start">flex-start</option>
-          <option value="center">center</option>
-          <option value="flex-end">flex-end</option>
-          <option value="space-between">space-between</option>
-          <option value="space-around">space-around</option>
-          <option value="stretch" selected="selected">stretch</option>
-        </select>
-      </label>
+      <div class="row">
+        <label for="select-align-content"
+          >align-content
+          <select id="select-align-content">
+            <option value="flex-start">flex-start</option>
+            <option value="center">center</option>
+            <option value="flex-end">flex-end</option>
+            <option value="space-between">space-between</option>
+            <option value="space-around">space-around</option>
+            <option value="stretch" selected="selected">stretch</option>
+          </select>
+        </label>
+      </div>
     </form>
 
-    <div id="main">
-      <div style="background-color: #f5c096; width: 150px; height: 150px">
-        150 x 150
-      </div>
-      <div style="background-color: pink; height: 150px">height: 150px</div>
-      <div style="background-color: lightblue; width: 150px">width: 150px</div>
-      <div style="background-color: coral">undefined</div>
-    </div>
-
-    <script>
-      "use strict";
-
-      var flexbox = document.querySelector("#main");
-
-      const selectJustifyContent = document.querySelector(
-        "#select-justify-content"
-      );
-      const selectAlignItems = document.querySelector("#select-align-items");
-      const inputFlexWrap = document.querySelector("#flex-wrap");
-      const selectAlignContent = document.querySelector(
-        "#select-align-content"
-      );
-
-      selectJustifyContent.addEventListener("change", function () {
-        flexbox.style.justifyContent = this.value;
-      });
-
-      selectAlignItems.addEventListener("change", function () {
-        flexbox.style.alignItems = this.value;
-      });
-
-      inputFlexWrap.addEventListener("change", function () {
-        flexbox.style.flexWrap = this.checked ? "wrap" : "";
-        flexbox.style.width = this.checked ? "400px" : "800px";
-      });
-
-      selectAlignContent.addEventListener("change", function () {
-        if (this.value !== "stretch" && !inputFlexWrap.checked) {
-          inputFlexWrap.checked = true;
-          inputFlexWrap.dispatchEvent(new Event("change"));
-        }
-
-        flexbox.style.alignContent = this.value;
-      });
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
