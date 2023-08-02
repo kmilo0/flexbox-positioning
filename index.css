@@ -1,5 +1,5 @@
 .container {
-  height: 400px;
+  height: 55vh;
   border: 1px solid #c3c3c3;
 
   display: flex;
@@ -27,7 +27,6 @@
 
 .item4 {
   background-color: coral;
-  font-size: 18px;
 }
 
 .form-flex {
